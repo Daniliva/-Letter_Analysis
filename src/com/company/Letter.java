@@ -13,10 +13,6 @@ public class Letter implements Comparable<Letter> {
         sideB = new Pair<String, Double>(name_2, b);
     }
 
-    public Letter(double a, double b) {
-        this("a", a, "b", b);
-    }
-
     @Override
     public String toString() {
         return "side_1=" + sideA.getKey() + " " + sideA.getValue() +
