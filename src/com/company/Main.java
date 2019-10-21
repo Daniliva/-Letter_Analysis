@@ -4,27 +4,33 @@ import java.util.Scanner;
 import java.util.regex.Pattern;
 
 public class Main {
-   static Scanner in = new Scanner(System.in);
-     private static double Value(String side)
-    { System.out.print("Input value for letter external "+side+": ");
-     //   Scanner in = new Scanner(System.in);
-    double a = in.nextDouble();
-   // in.close();
-
-    return  a;
+    private static String inputStr() {
+        Scanner in = new Scanner(System.in);
+        String str = in.nextLine();
+        return str;
     }
-    private static  boolean answer()
-    { // Scanner in = new Scanner(System.in);
-        String answer="y";
-        String s2 = "Y";
-         in.nextLine();
+    private static Double inputDouble() {
+        Scanner in = new Scanner(System.in);
+        Double str = in.nextDouble();
+        return str;
+    }
 
-        answer = in.nextLine();
-      //  in.close();
+    private static void outputStr(String str) {
+        System.out.println(str);
+    }
+
+    private static double Value(String side) {
+        outputStr("Input value for letter external " + side + ": ");
+        double a = inputDouble();
+        return a;
+    }
+
+    private static boolean answer() {
+        String s2 = "Y";
+        outputStr("You will continue?:\n");
+        String answer  = inputStr();
         if (Pattern.compile(Pattern.quote("yes"), Pattern.CASE_INSENSITIVE).matcher(answer).find()) {
             return true;
-
-
         } else if (Pattern.compile(Pattern.quote(s2), Pattern.CASE_INSENSITIVE).matcher(answer).find()) {
             return true;
         } else {
@@ -32,30 +38,26 @@ public class Main {
         }
 
     }
-    public static void main(String[] args) {
 
-        Letter letter_ab;
-        Letter letter_bc;
-        letter_ab = new Letter(1, 1);
-        letter_bc = new Letter("c", 1, "b", 1);
-      //  Scanner in = new Scanner(System.in);
+    private static void letterWhile() {
+        Letter letterAB= new Letter(1, 1);
+        Letter letterBC=new Letter("c", 1, "b", 1);
         boolean cal = true;
-
         while (cal) {
-            letter_ab.setA(Value("a"));
-            letter_ab.setB(Value("b"));
-            letter_bc.setA(Value("c"));
-            letter_bc.setB(Value("d"));
-            if (letter_ab.Envelope_Analysis(letter_bc)) {
-                System.out.println(letter_bc.toString() + " can invest " + letter_ab.toString());
+            letterAB.setA(Value("a"));
+            letterAB.setB(Value("b"));
+            letterBC.setA(Value("c"));
+            letterBC.setB(Value("d"));
+            if (letterAB.compareTo(letterBC)>0) {
+                outputStr(letterBC.toString() + " can invest " + letterAB.toString());
             } else {
-                System.out.println(letter_bc.toString() + " can not invest " + letter_ab.toString());
+                outputStr(letterBC.toString() + " can not invest " + letterAB.toString());
             }
-            System.out.println("You will continue?:\n");
-            cal= answer();
-
+            cal = answer();
         }
-in.close();
+    }
 
+    public static void main(String[] args) {
+        letterWhile();
     }
 }
