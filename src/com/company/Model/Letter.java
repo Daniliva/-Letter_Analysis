@@ -1,4 +1,4 @@
-package com.company;
+package com.company.Model;
 
 import javafx.util.Pair;
 
@@ -9,8 +9,8 @@ public class Letter implements Comparable<Letter> {
     private Pair<String, Double> sideB;
 
     public Letter(String name_1, double a, String name_2, double b) {
-        sideA = new Pair<String, Double>(name_1, a);
-        sideB = new Pair<String, Double>(name_2, b);
+        sideA = new Pair<>(name_1, a);
+        sideB = new Pair<>(name_2, b);
     }
 
     @Override
@@ -19,7 +19,7 @@ public class Letter implements Comparable<Letter> {
                 ", side_2=" + sideB.getKey() + " " + sideB.getValue();
     }
 
-     public Double Area() {
+     private Double Area() {
         final double v;
         v = sideB.getValue() * sideA.getValue();
         return v;
@@ -31,22 +31,6 @@ public class Letter implements Comparable<Letter> {
 
     public Double getSideAValue() {
         return sideA.getValue();
-    }
-
-    public String getSideBKey() {
-        return sideB.getKey();
-    }
-
-    public String getSideAKey() {
-        return sideA.getKey();
-    }
-
-    public void setA(double a) {
-        sideA = new Pair<String, Double>(sideA.getKey(), a);
-    }
-
-    public void setB(double b) {
-        sideB = new Pair<String, Double>(sideB.getKey(), b);
     }
 
     @Override

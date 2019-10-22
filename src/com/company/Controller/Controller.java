@@ -1,6 +1,6 @@
 package com.company.Controller;
 
-import com.company.Letter;
+import com.company.Model.Letter;
 
 import java.util.Scanner;
 import java.util.regex.Pattern;
