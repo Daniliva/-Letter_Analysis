@@ -43,7 +43,7 @@ public class Controller {
 
     }
 
-    private static double[] ValueLetter(String[] nameSide) {
+    private static double[] valueLetter(String[] nameSide) {
         double[] ValueSide = new double[4];
         String letterNumber = "first";
         for (int i = 0; i < nameSide.length; i++) {
@@ -57,7 +57,7 @@ public class Controller {
 
     private static void lettersCreate() {
         String[] nameSide = new String[]{"a", "b", "c", "d"};
-        double[] ValueSide = ValueLetter(nameSide);
+        double[] ValueSide = valueLetter(nameSide);
         Letter letterAB = new Letter(nameSide[0], ValueSide[0], nameSide[1], ValueSide[1]);
         Letter letterBC = new Letter(nameSide[2], ValueSide[2], nameSide[3], ValueSide[3]);
         if (letterAB.compareTo(letterBC) > 0) {
