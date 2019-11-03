@@ -19,7 +19,7 @@ public class Letter implements Comparable<Letter> {
                 ", side_2=" + sideB.getKey() + " " + sideB.getValue();
     }
 
-     private Double Area() {
+    private Double Area() {
         final double v;
         v = sideB.getValue() * sideA.getValue();
         return v;
@@ -33,20 +33,22 @@ public class Letter implements Comparable<Letter> {
         return sideA.getValue();
     }
 
+    public Double getDiagonal() {
+        return Math.pow(getSideAValue(), 2) + Math.pow(getSideBValue(), 2);
+    }
+
     @Override
     public int compareTo(Letter o) {
         int result = this.Area().compareTo(o.Area());
         if (result >= 0)
             return result;
         else {
-            if (o.getSideAValue() < getSideAValue()) {
-                if (o.getSideBValue() < getSideBValue()) {
+
+            if (o.getDiagonal() < getDiagonal()) {
+                {
                     return 1;
                 }
-            } else if (o.getSideAValue() < getSideBValue())
-                if (o.getSideBValue() < getSideAValue()) {
-                    return 1;
-                }
+            }
         }
         return 0;
     }

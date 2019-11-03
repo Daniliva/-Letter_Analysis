@@ -2,58 +2,11 @@ package com.company.Controller;
 
 import com.company.Model.Letter;
 
-import java.util.Scanner;
-import java.util.regex.Pattern;
+
+import static com.company.Controller.EnterOutController.*;
 
 public class Controller {
 
-    private static String inputStr() {
-        Scanner in = new Scanner(System.in);
-        String str = in.nextLine();
-        return str;
-    }
-
-    private static double inputDouble() {
-        Scanner in = new Scanner(System.in);
-        double str = in.nextDouble();
-        return str;
-    }
-
-    private static void outputStr(String str) {
-        System.out.println(str);
-    }
-
-    private static double ValueSide(String side) {
-        outputStr("Input value for letter external " + side + ": ");
-        double a = inputDouble();
-        return a;
-    }
-
-    private static boolean answerAboutContinue() {
-        outputStr("Will you continue?:\n");
-        String s2 = "Y";
-        String answer = inputStr();
-        if (Pattern.compile(Pattern.quote("yes"), Pattern.CASE_INSENSITIVE).matcher(answer).find()) {
-            return true;
-        } else if (Pattern.compile(Pattern.quote(s2), Pattern.CASE_INSENSITIVE).matcher(answer).find()) {
-            return true;
-        } else {
-            return false;
-        }
-
-    }
-
-    private static double[] valueLetter(String[] nameSide) {
-        double[] ValueSide = new double[4];
-        String letterNumber = "first";
-        for (int i = 0; i < nameSide.length; i++) {
-            if (i > 2) {
-                letterNumber = "second";
-            }
-            ValueSide[i] = ValueSide(letterNumber + nameSide[i]);
-        }
-        return ValueSide;
-    }
 
     private static void lettersCreate() {
         String[] nameSide = new String[]{"a", "b", "c", "d"};
@@ -67,7 +20,7 @@ public class Controller {
         }
     }
 
-    private static void WhileForLetter() {
+    private static void whileForLetter() {
         boolean cal = true;
         while (cal) {
             lettersCreate();
@@ -76,7 +29,7 @@ public class Controller {
     }
 
     public void run() {
-        WhileForLetter();
+        whileForLetter();
     }
 
 
