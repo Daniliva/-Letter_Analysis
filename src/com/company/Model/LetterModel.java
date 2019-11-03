@@ -2,13 +2,13 @@ package com.company.Model;
 
 import javafx.util.Pair;
 
-public class Letter implements Comparable<Letter> {
+public class LetterModel implements Comparable<LetterModel> {
 
 
     private Pair<String, Double> sideA;
     private Pair<String, Double> sideB;
 
-    public Letter(String name_1, double a, String name_2, double b) {
+    public LetterModel(String name_1, double a, String name_2, double b) {
         sideA = new Pair<>(name_1, a);
         sideB = new Pair<>(name_2, b);
     }
@@ -38,7 +38,7 @@ public class Letter implements Comparable<Letter> {
     }
 
     @Override
-    public int compareTo(Letter o) {
+    public int compareTo(LetterModel o) {
         int result = this.Area().compareTo(o.Area());
         if (result >= 0)
             return result;

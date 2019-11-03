@@ -1,29 +1,28 @@
 package com.company.Controller;
 
-import com.company.Model.Letter;
+import com.company.Model.LetterModel;
 
 
 import static com.company.Controller.EnterOutController.*;
+import static com.company.Service.LetterService.*;
 
 public class Controller {
 
 
-    private static void lettersCreate() {
+    private static void lettersOperation() {
         String[] nameSide = new String[]{"a", "b", "c", "d"};
         double[] ValueSide = valueLetter(nameSide);
-        Letter letterAB = new Letter(nameSide[0], ValueSide[0], nameSide[1], ValueSide[1]);
-        Letter letterBC = new Letter(nameSide[2], ValueSide[2], nameSide[3], ValueSide[3]);
-        if (letterAB.compareTo(letterBC) > 0) {
-            outputStr(letterBC.toString() + " can invest " + letterAB.toString());
-        } else {
-            outputStr(letterBC.toString() + " can not invest " + letterAB.toString());
-        }
+        LetterModel letterModelAB = letterCreate(nameSide, ValueSide);
+        nameSide = new String[]{"c", "d"};
+        ValueSide = new double[]{ValueSide[2], ValueSide[3]};
+        LetterModel letterModelBC = letterCreate(nameSide, ValueSide);
+        outputStr(lettersComparison(letterModelAB, letterModelBC));
     }
 
     private static void whileForLetter() {
         boolean cal = true;
         while (cal) {
-            lettersCreate();
+            lettersOperation();
             cal = answerAboutContinue();
         }
     }

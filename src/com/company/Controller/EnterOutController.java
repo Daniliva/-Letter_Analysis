@@ -48,7 +48,7 @@ public class EnterOutController {
     }
 
     public static double[] valueLetter(String[] nameSide) {
-        double[] ValueSide = new double[4];
+        double[] ValueSide = new double[nameSide.length];
         String letterNumber = "first letter";
         for (int i = 0; i < nameSide.length; i++) {
             if (i >= 2) {
